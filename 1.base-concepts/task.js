@@ -1,8 +1,8 @@
 "use strict";
 function solveEquation(a, b, c) {
    let arr = [];
-   let x1;
-   let x2;
+   let x1 = 0;
+   let x2 = 0;
    let d = b ** 2 - 4 * a * c;
 
    if (d > 0) {
@@ -21,13 +21,13 @@ function solveEquation(a, b, c) {
 // solveEquation(1, 5, 4);
 
 function calculateTotalMortgage(percent, contribution, amount, countMonths) {
-   let payment;
-   let sumCount;
+   let payment = 0;
+   let sumCount = 0;
    let monthPer = percent / 100 / 12;
    let bodyCount = amount - contribution;
    let err;
    let errorMessage = `Параметр ${err} содержит
-   не правильное значение ${typeof err}!`;
+   не правильное значение!`;
 
    if (isNaN(percent)) {
       err = percent;
