@@ -10,12 +10,15 @@ function solveEquation(a, b, c) {
       x2 = (-b - Math.sqrt(d)) / (2 * a);
       arr.push(x1);
       arr.push(x2);
-      return arr;
+      console.log("Первый корень - " + arr[0] + "Второй корень - " + arr[1]);
    } else if ((d = 0)) {
       x1 = -b / (2 * a);
       arr.push(x1);
-      return arr;
-   } else return arr;
+      console.log("Один корень - " + arr[0]);
+   } else {
+      console.log("Корней нет!");
+   }
+   return arr;
 }
 
 // solveEquation(1, 5, 4);
