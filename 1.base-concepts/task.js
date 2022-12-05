@@ -11,7 +11,7 @@ function solveEquation(a, b, c) {
       arr.push(x1);
       arr.push(x2);
       console.log("Первый корень - " + arr[0] + "Второй корень - " + arr[1]);
-   } else if ((d = 0)) {
+   } else if (d === 0) {
       x1 = -b / (2 * a);
       arr.push(x1);
       console.log("Один корень - " + arr[0]);
@@ -28,26 +28,17 @@ function calculateTotalMortgage(percent, contribution, amount, countMonths) {
    let sumCount = 0;
    let monthPer = percent / 100 / 12;
    let bodyCount = amount - contribution;
-   let err;
-   let errorMessage = `Параметр ${err} содержит
-   не правильное значение!`;
 
-   if (isNaN(percent)) {
-      err = percent;
-      console.log(errorMessage);
-   } else if (isNaN(contribution)) {
-      err = contribution;
-      console.log(errorMessage);
-   } else if (isNaN(amount)) {
-      err = amount;
-      console.log(errorMessage);
-   } else if (isNaN(countMonths)) {
-      err = countMonths;
-      console.log(errorMessage);
-   } else
-      payment =
-         bodyCount *
-         (monthPer + monthPer / ((1 + monthPer) ** countMonths - 1));
+   if (
+      isNaN(percent) ||
+      isNaN(contribution) ||
+      isNaN(amount) ||
+      isNaN(countMonths)
+   ) {
+      console.log("Value is not a number!");
+   }
+   payment =
+      bodyCount * (monthPer + monthPer / ((1 + monthPer) ** countMonths - 1));
    sumCount = parseFloat((payment * countMonths).toFixed(2));
    return sumCount;
 }
