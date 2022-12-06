@@ -15,9 +15,8 @@ function solveEquation(a, b, c) {
       x1 = -b / (2 * a);
       arr.push(x1);
       console.log("Один корень - " + arr[0]);
-   } else {
-      console.log("Корней нет!");
    }
+   console.log("Корней нет!");
    return arr;
 }
 
@@ -35,7 +34,7 @@ function calculateTotalMortgage(percent, contribution, amount, countMonths) {
       isNaN(amount) ||
       isNaN(countMonths)
    ) {
-      console.log("Value is not a number!");
+      return false;
    }
    payment =
       bodyCount * (monthPer + monthPer / ((1 + monthPer) ** countMonths - 1));
