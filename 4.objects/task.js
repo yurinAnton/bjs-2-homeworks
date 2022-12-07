@@ -33,3 +33,17 @@ Student.prototype.exclude = function (reason) {
    delete Student.subject;
    Student.excluded = reason;
 };
+
+
+//______________________________________
+ 
+function getUsers (users, gender) {
+    users.filter(user => user.gender === gender)
+    .map(student => student.age)
+    .reduce((acc, userAge, index, array) => {
+        if (index === array.length - 1) {
+            return acc / array.length
+        }
+        return summ + userAge
+    })
+}
