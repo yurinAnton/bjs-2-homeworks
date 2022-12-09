@@ -3,9 +3,13 @@ function Student(name, gender, age) {
       name,
       gender,
       age,
-      marks: {},
+      marks: [],
    };
 }
+
+let student1 = new Student("Andrey", "мужской", 31);
+let student2 = new Student("Svetlana", "женский", 25);
+let student3 = new Student("Egor", "мужской", 18);
 
 Student.prototype.setSubject = function (subjectName) {
    return {
@@ -14,18 +18,20 @@ Student.prototype.setSubject = function (subjectName) {
 };
 
 Student.prototype.addMarks = function (...marks) {
-   for (let value of marks) {
-      this.marks.push(marks[value]);
+   if ("marks" in Student) {
+      marks.map((marks) => Student.marks);
    }
 };
 
 Student.prototype.getAverage = function () {
-   for (let i of Student.marks) {
-      if ("marks" in Student) {
-         let sumMarks = sum(i);
-         return sumMarks / marks.length;
-      } else return 0;
+   if ("marks" in Student) {
+      marks.reduce((summ, mark, index, marks) => {
+         if (index === marks.length - 1) {
+            return summ / marks.length;
+         }
+      }, 0);
    }
+   return 0;
 };
 
 Student.prototype.exclude = function (reason) {
@@ -33,17 +39,3 @@ Student.prototype.exclude = function (reason) {
    delete Student.subject;
    Student.excluded = reason;
 };
-
-
-//______________________________________
- 
-function getUsers (users, gender) {
-    users.filter(user => user.gender === gender)
-    .map(student => student.age)
-    .reduce((acc, userAge, index, array) => {
-        if (index === array.length - 1) {
-            return acc / array.length
-        }
-        return summ + userAge
-    })
-}
