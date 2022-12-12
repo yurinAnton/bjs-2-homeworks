@@ -8,8 +8,7 @@ function getUsersNamesInAgeRange(users, gender) {
       .map((person) => person.age)
       .reduce((summ, userAge, index, array) => {
          if (index === array.length - 1) {
-            return summ / array.length;
+            return (summ + userAge) / array.length;
          }
-         return summ + userAge;
       }, 0);
 }
