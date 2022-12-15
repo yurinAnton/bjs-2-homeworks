@@ -10,5 +10,6 @@ function getUsersNamesInAgeRange(users, gender) {
          if (index === array.length - 1) {
             return (summ + userAge) / array.length;
          }
+         return summ + userAge;
       }, 0);
 }
