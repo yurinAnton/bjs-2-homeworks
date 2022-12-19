@@ -1,17 +1,16 @@
 ﻿function parseCount(value) {
-   if (value === NaN) {
-      throw "Не валидное значение!";
-   } else return Number.parseFloat(value);
+   result = Number.parseFloat(value);
+   if (isNaN(result)) {
+      throw new Error("Не валидное значение");
+   }
+   return result;
 }
 
-function validateCount(value, parseCount) {
-   let parseResult = parseCount(value);
+function validateCount(number) {
    try {
-      parseResult === NaN;
-   } catch {
-      console.log("Value is not a number!");
-   } finally {
-      return parseResult;
+      return parseCount(number);
+   } catch (error) {
+      return error;
    }
 }
 

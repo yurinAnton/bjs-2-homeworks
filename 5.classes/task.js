@@ -28,16 +28,6 @@ class PrintEditionItem {
    }
 }
 
-//  const sherlock = new PrintEditionItem(
-//     "Полное собрание повестей и рассказов о Шерлоке Холмсе в одном томе",
-//     2019,
-//     1008
-//  );
-//  console.log(sherlock.releaseDate); //2019
-//  console.log(sherlock.state); //100
-//  sherlock.fix();
-//  console.log(sherlock.state); //100
-
 class Magazine extends PrintEditionItem {
    constructor(name, releaseDate, pagesCount) {
       super(name);
@@ -92,47 +82,31 @@ class DetectiveBook extends PrintEditionItem {
    }
 }
 
-//  const picknick = new FantasticBook(
-//     "Аркадий и Борис Стругацкие",
-//     "Пикник на обочине",
-//     1972,
-//     168
-//  );
-
-//  console.log(picknick.author); //"Аркадий и Борис Стругацкие"
-//  picknick.state = 10;
-//  console.log(picknick.state); //10
-//  picknick.fix();
-//  console.log(picknick.state); //15
-
 // Ex. 2
 
 class Library {
-   constructor(name, book) {
+   constructor(name) {
       this.name = "";
       this.books = [];
-      function addBook(book) {
-         if (state > 30) {
-            this.books.push(book);
-         }
-         return books;
+   }
+
+   addBook(book) {
+      if (state >= 30) {
+         this.books.push(book);
       }
-      let findBookBy = function (type, value) {
-         this.type = value;
-         for (let type of books) {
-            if (type in books) {
-               return this.type;
-            } else return null;
-         }
-      };
-      let giveBookByName = function (bookName) {
-         for (let value of books) {
-            if (value === bookName) {
-               delete this.name;
-               return this.book;
-            } else return null;
-         }
-      };
+   }
+
+   findBookBy(type, value) {
+      return this.books.find((book) => book[type] === value);
+   }
+
+   giveBookByName(bookName) {
+      const giveBook = this.books.findBookBy("name", bookName);
+      if (giveBook) {
+         const indexBook = this.books.indexOf(giveBook);
+         this.books.splice(indexBook, 1);
+         return giveBook;
+      }
    }
 }
 
