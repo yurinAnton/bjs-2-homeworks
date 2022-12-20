@@ -21,7 +21,7 @@ Student.prototype.addMarks = function (...marksToAdd) {
 
 Student.prototype.getAverage = function () {
    if (!this.marks || this.marks.length === 0) {
-      return null;
+      return 0;
    }
    let sum = this.marks.reduce((acc, item) => acc + item, 0);
    return parseFloat((sum / this.marks.length).toFixed(2));
