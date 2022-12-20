@@ -20,10 +20,11 @@ Student.prototype.addMarks = function (...marksToAdd) {
 };
 
 Student.prototype.getAverage = function () {
-   if (this.marks) {
-      let sum = this.marks.reduce((acc, item) => acc + item, 0);
-      return parseFloat((sum / marks.length).toFixed(2));
+   if (!this.marks || this.marks.length === 0) {
+      return null;
    }
+   let sum = this.marks.reduce((acc, item) => acc + item, 0);
+   return parseFloat((sum / this.marks.length).toFixed(2));
 };
 
 Student.prototype.exclude = function (reason) {
