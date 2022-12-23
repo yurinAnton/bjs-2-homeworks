@@ -112,20 +112,20 @@ class Library {
 
 // Ex. 3
 
-class classNote {
-   constructor(subject, mark) {
-      this.subject = "";
-      //   this.marks = {
-      //      физика: [],
-      //      химия: [],
-      //      литература: [],
-      //      ифнорматика: [],
-      //   };
+// class classNote {
+//    constructor(subject, mark) {
+//       this.subject = "";
+//       //   this.marks = {
+//       //      физика: [],
+//       //      химия: [],
+//       //      литература: [],
+//       //      ифнорматика: [],
+//       //   };
 
-      let addMark = function (subject, mark) {
-         if (mark > 1 && mark < 6) {
-            this.marks.push(mark);
-         } else return false;
-      };
-   }
-}
+//       let addMark = function (subject, mark) {
+//          if (mark > 1 && mark < 6) {
+//             this.marks.push(mark);
+//          } else return false;
+//       };
+//    }
+// }
