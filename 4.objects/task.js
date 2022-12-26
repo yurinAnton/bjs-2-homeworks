@@ -15,7 +15,7 @@ Student.prototype.setSubject = function (subjectName) {
 
 Student.prototype.addMarks = function (...marks) {
    for (let value of marks) {
-      this.marks.push(marks[value]);
+      marks.push(marks[value]);
    }
 };
 
@@ -35,7 +35,6 @@ Student.prototype.exclude = function (reason) {
 };
 
 
-//______________________________________
  
 function getUsers (users, gender) {
     users.filter(user => user.gender === gender)
