@@ -3,32 +3,13 @@ function compareArrays(arr1, arr2) {
 }
 
 function getUsersNamesInAgeRange(users, gender) {
-   const newUsers = users.filter((e) => {
-      users.gender === gender;
-   });
-   newUsers = users.map((item) => {
-      if (users.gender === gender) {
-         newUsers.push(users.age);
-      }
-   });
-   let avgAge = 0;
-   newUsers.reduce((acc, age, index) => {
-      acc += age;
-      if (index === newUsers.length - 1) {
-         avgAge = acc / index;
-      }
-      return avgAge;
-   }, 0);
+   return users
+      .filter((user) => user.gender === gender)
+      .map((person) => person.age)
+      .reduce((summ, userAge, index, array) => {
+         if (index === array.length - 1) {
+            return (summ + userAge) / array.length;
+         }
+         return summ + userAge;
+      }, 0);
 }
-
-// const users = [
-//    { firstName: "Александр", secondName: "Карпов", age: 17, gender: "мужской" },
-//    { firstName: "Егор", secondName: "Морозов", age: 21, gender: "мужской" },
-//    { firstName: "Мелисса", secondName: "Леонова", age: 40, gender: "женский" },
-//    {
-//       firstName: "Мелания",
-//       secondName: "Савельева",
-//       age: 37,
-//       gender: "женский",
-//    },
-// ];

@@ -1,48 +1,34 @@
 function Student(name, gender, age) {
-   return {
-      name,
-      gender,
-      age,
-      marks: {},
-   };
+   this.name = name;
+   this.gender = gender;
+   this.age = age;
+   this.marks = [];
 }
 
+let student1 = new Student("Andrey", "мужской", 31);
+let student2 = new Student("Svetlana", "женский", 25);
+let student3 = new Student("Egor", "мужской", 18);
+
 Student.prototype.setSubject = function (subjectName) {
-   return {
-      subject: subjectName,
-   };
+   this.subject = subjectName;
 };
 
-Student.prototype.addMarks = function (...marks) {
-   for (let value of marks) {
-      marks.push(marks[value]);
+Student.prototype.addMarks = function (...marksToAdd) {
+   if (this.marks) {
+      this.marks.push(...marksToAdd);
    }
 };
 
 Student.prototype.getAverage = function () {
-   for (let i of Student.marks) {
-      if ("marks" in Student) {
-         let sumMarks = sum(i);
-         return sumMarks / marks.length;
-      } else return 0;
+   if (!this.marks || this.marks.length === 0) {
+      return 0;
    }
+   let sum = this.marks.reduce((acc, item) => acc + item, 0);
+   return parseFloat((sum / this.marks.length).toFixed(2));
 };
 
 Student.prototype.exclude = function (reason) {
-   delete Student.marks;
-   delete Student.subject;
-   Student.excluded = reason;
+   delete this.marks;
+   delete this.subject;
+   this.excluded = reason;
 };
-
-
- 
-function getUsers (users, gender) {
-    users.filter(user => user.gender === gender)
-    .map(student => student.age)
-    .reduce((acc, userAge, index, array) => {
-        if (index === array.length - 1) {
-            return acc / array.length
-        }
-        return summ + userAge
-    })
-}
